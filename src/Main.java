@@ -5,8 +5,6 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("Data Structure & Graph Analyzer");
-        System.out.println("Project setup successful!");
 
         boolean running = true;
 
