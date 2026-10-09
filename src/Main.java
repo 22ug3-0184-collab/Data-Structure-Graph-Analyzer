@@ -93,5 +93,14 @@ public class Main {
             scanner.next();
         }
     }
+
+static ArrayManager arrayManager = new ArrayManager();
+static SearchAlgorithms searchAlgorithms = new SearchAlgorithms();
+static Stack stack = new Stack();
+static Queue queue = new Queue();
+static LinkedList linkedList = new LinkedList();
+static Graph graph = new Graph();
+static PerformanceAnalyzer performanceAnalyzer =
+        new PerformanceAnalyzer();
     
 }
