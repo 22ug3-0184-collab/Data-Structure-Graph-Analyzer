@@ -1,5 +1,3 @@
-package src;
-
 public class ArrayManager {
 
     private int[] data;

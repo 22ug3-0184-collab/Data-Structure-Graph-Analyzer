@@ -1,19 +1,3 @@
-package src;
-
-/**
- * Queue.java
- * Member 3 — Queue Implementation
- *
- * Implements Queue operations:
- *   - Enqueue
- *   - Dequeue
- *   - Peek / Front
- *   - Display
- *
- * Queue follows FIFO:
- * First In, First Out
- */
-
 public class Queue {
 
     private int[] queue;
