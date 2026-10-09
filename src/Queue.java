@@ -1,3 +1,22 @@
+<<<<<<< Updated upstream
+=======
+package src;
+
+/**
+ * Queue.java
+ * Member 3 — Queue Implementation
+ *
+ * Implements Queue operations:
+ *   - Enqueue
+ *   - Dequeue
+ *   - Peek / Front
+ *   - Display
+ *
+ * Queue follows FIFO:
+ * First In, First Out
+ */
+
+>>>>>>> Stashed changes
 public class Queue {
 
     private int[] queue;
