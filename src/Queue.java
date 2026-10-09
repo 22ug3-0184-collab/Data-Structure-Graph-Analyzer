@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 package src;
 
 /**
@@ -16,7 +14,6 @@ package src;
  * First In, First Out
  */
 
->>>>>>> Stashed changes
 public class Queue {
 
     private int[] queue;
