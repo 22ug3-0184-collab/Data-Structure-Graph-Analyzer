@@ -93,21 +93,12 @@ Student ID: 22UG3-0145
 Assigned Responsibility: Linked List and Graph Operations
 
 Individual Contribution:
-
 Implemented the LinkedList.java class.
-
 Developed linked list insertion, deletion, searching, and display operations.
-
 Implemented the Graph.java class using an adjacency-list representation.
-
 Developed graph vertex and edge operations.
-
 Implemented Breadth-First Search (BFS).
-
 Implemented Depth-First Search (DFS).
-
 Tested linked list and graph functionality.
-
 Assisted with integrating the assigned components into the main application.
-
 Explained graph traversal algorithms and their time complexities.
