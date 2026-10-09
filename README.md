@@ -41,7 +41,7 @@ The application demonstrates different data structures, searching algorithms, gr
 
 ## Individual Contribution
 
-Member 1 – Project Coordinator
+### Member 1 – Project Coordinator
 
 Student Name: M K S S Ananda
 Student ID: 22UG3-0184
@@ -55,7 +55,7 @@ Contributed to testing, debugging, and validation of the integrated application.
 Coordinated GitHub collaboration, code reviews, and project documentation.
 Assisted with preparing the final demonstration and submission.
 
-Member 2 – Array and Searching Developer
+### Member 2 – Array and Searching Developer
 
 Student Name: M P J S S Jayasooriya 
 Student ID: 22UG3-0051
@@ -70,7 +70,7 @@ Developed search step-counting functionality.
 Tested array operations and searching algorithms.
 Explained the implementation and time complexity of the assigned algorithms.
 
-Member 3 – Stack and Queue Developer
+### Member 3 – Stack and Queue Developer
 
 Student Name: T M Buddhika 
 Student ID: 22UG3-0238
@@ -86,7 +86,7 @@ Implemented the circular-array queue and empty-queue handling.
 Tested stack and queue operations.
 Explained the LIFO and FIFO principles and their time complexities.
 
-Member 4 – Linked List and Graph Developer
+### Member 4 – Linked List and Graph Developer
 
 Student Name: H M T I Gunasinghe 22UG3-0145
 Student ID: 22UG3-0145
