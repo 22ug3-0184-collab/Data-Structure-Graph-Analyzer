@@ -1,118 +1,109 @@
-package src;
-
 import java.util.Arrays;
 
-/**
- * SearchAlgorithms.java
- * Developer 1 — Array + Searching
- *
- * Implements:
- *   - Linear Search   -> O(n)
- *   - Binary Search   -> O(log n)  (requires sorted array)
- *
- * Each search returns a result object containing:
- *   - found index
- *   - number of steps (operations)
- *   - execution time (nanoseconds)
- *
- * This supports the Performance Comparison module.
- */
 public class SearchAlgorithms {
 
-    // ---------- LINEAR SEARCH ----------
-    public static SearchResult linearSearch(int[] arr, int target) {
-        long start = System.nanoTime();
-        int steps = 0;
-        int foundIndex = -1;
-
-        for (int i = 0; i < arr.length; i++) {
-            steps++;
-            if (arr[i] == target) {
-                foundIndex = i;
-                break;
+    public static int linearSearch(int[] array, int target) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == target) {
+                return i;
             }
         }
-
-        long timeNs = System.nanoTime() - start;
-        return new SearchResult("Linear Search", target, foundIndex, steps, timeNs);
+        return -1;
     }
 
-    // ---------- BINARY SEARCH ----------
-    public static SearchResult binarySearch(int[] arr, int target) {
-        // Binary search requires a sorted array — copy + sort
-        int[] sorted = arr.clone();
-        Arrays.sort(sorted);
+    // Array must be sorted.
+    public static int binarySearch(int[] array, int target) {
+        int left = 0;
+        int right = array.length - 1;
 
-        long start = System.nanoTime();
-        int steps = 0;
-        int low = 0, high = sorted.length - 1;
-        int foundIndex = -1;
+        while (left <= right) {
+            int middle = left + (right - left) / 2;
 
-        while (low <= high) {
-            steps++;
-            int mid = low + (high - low) / 2;
-            if (sorted[mid] == target) {
-                foundIndex = mid;
-                break;
-            } else if (sorted[mid] < target) {
-                low = mid + 1;
+            if (array[middle] == target) {
+                return middle;
+            }
+
+            if (array[middle] < target) {
+                left = middle + 1;
             } else {
-                high = mid - 1;
+                right = middle - 1;
             }
         }
-
-        long timeNs = System.nanoTime() - start;
-        return new SearchResult("Binary Search", target, foundIndex, steps, timeNs);
+        return -1;
     }
 
-    // ---------- COMPARISON ----------
-    public static void compare(int[] arr, int target) {
-        if (arr.length == 0) {
-            System.out.println(">> Array is empty. Nothing to search.");
-            return;
+    public static int linearSearchSteps(int[] array, int target) {
+        int steps = 0;
+
+        for (int value : array) {
+            steps++;
+            if (value == target) {
+                return steps;
+            }
+        }
+        return steps;
+    }
+
+    public static int binarySearchSteps(int[] array, int target) {
+        int left = 0;
+        int right = array.length - 1;
+        int steps = 0;
+
+        while (left <= right) {
+            steps++;
+            int middle = left + (right - left) / 2;
+
+            if (array[middle] == target) {
+                return steps;
+            }
+
+            if (array[middle] < target) {
+                left = middle + 1;
+            } else {
+                right = middle - 1;
+            }
+        }
+        return steps;
+    }
+
+    public static void displayLinearSearch(int[] array, int target) {
+        int steps = linearSearchSteps(array, target);
+        int index = linearSearch(array, target);
+
+        System.out.println("\nLinear Search:");
+        System.out.println("Target: " + target);
+
+        if (index != -1) {
+            System.out.println("Found at index: " + index);
+        } else {
+            System.out.println("Value not found.");
         }
 
-        System.out.println("\n===== SEARCHING PERFORMANCE COMPARISON =====");
-        System.out.println("Target value: " + target);
-        System.out.println("Array size  : " + arr.length);
-        System.out.println("------------------------------------------------------------");
-        System.out.printf("%-18s %-14s %-10s %-15s%n",
-                "Algorithm", "Found?", "Steps", "Time (ns)");
-        System.out.println("------------------------------------------------------------");
-
-        SearchResult linear = linearSearch(arr, target);
-        SearchResult binary = binarySearch(arr, target);
-
-        printRow(linear);
-        printRow(binary);
-
-        System.out.println("------------------------------------------------------------");
-        System.out.println("Note: Binary Search requires a sorted array.");
-        System.out.println("Complexity -> Linear: O(n)   |   Binary: O(log n)");
-        System.out.println("============================================\n");
+        System.out.println("Steps: " + steps);
     }
 
-    private static void printRow(SearchResult r) {
-        String found = (r.foundIndex >= 0) ? "Yes (idx " + r.foundIndex + ")" : "No";
-        System.out.printf("%-18s %-14s %-10d %-15d%n",
-                r.algorithm, found, r.steps, r.timeNs);
-    }
+    public static void displayBinarySearch(int[] array, int target) {
+        int[] sortedArray = Arrays.copyOf(array, array.length);
+        Arrays.sort(sortedArray);
 
-    // ---------- RESULT CLASS ----------
-    public static class SearchResult {
-        public final String algorithm;
-        public final int target;
-        public final int foundIndex;
-        public final int steps;
-        public final long timeNs;
+        int steps = binarySearchSteps(sortedArray, target);
+        int index = binarySearch(sortedArray, target);
 
-        public SearchResult(String algorithm, int target,
-                            int foundIndex, int steps, long timeNs) {
-            this.algorithm = algorithm;
-            this.target = target;
-            this.foundIndex = foundIndex;
-            this.steps = steps;
-            this.timeNs = timeNs;
+        System.out.println("\nSorted data used for Binary Search:");
+        for (int value : sortedArray) {
+            System.out.print(value + " ");
         }
+        System.out.println();
+
+        System.out.println("Binary Search:");
+        System.out.println("Target: " + target);
+
+        if (index != -1) {
+            System.out.println("Found at sorted index: " + index);
+        } else {
+            System.out.println("Value not found.");
+        }
+
+        System.out.println("Steps: " + steps);
     }
 }
