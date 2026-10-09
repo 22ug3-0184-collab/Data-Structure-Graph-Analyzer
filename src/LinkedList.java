@@ -1,96 +1,92 @@
 public class LinkedList {
 
-    // Node class
-    private class Node {
-        String data;
+    private static class Node {
+        int data;
         Node next;
 
-        Node(String data) {
+        Node(int data) {
             this.data = data;
             this.next = null;
         }
     }
 
     private Node head;
+    private int size;
 
-    // Insert a new value at the end
-    public void insert(String data) {
+    public LinkedList() {
+        head = null;
+        size = 0;
+    }
 
-        Node newNode = new Node(data);
+    public void insert(int value) {
+        Node newNode = new Node(value);
 
         if (head == null) {
             head = newNode;
-            return;
+        } else {
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
         }
 
-        Node current = head;
-
-        while (current.next != null) {
-            current = current.next;
-        }
-
-        current.next = newNode;
+        size++;
+        System.out.println("Value " + value + " inserted into linked list.");
     }
 
-    // Delete a value
-    public boolean delete(String data) {
-
+    public boolean delete(int value) {
         if (head == null) {
+            System.out.println("Linked list is empty.");
             return false;
         }
 
-        // If the first node contains the value
-        if (head.data.equals(data)) {
+        if (head.data == value) {
             head = head.next;
+            size--;
+            System.out.println("Value " + value + " deleted.");
             return true;
         }
 
         Node current = head;
 
         while (current.next != null) {
-
-            if (current.next.data.equals(data)) {
+            if (current.next.data == value) {
                 current.next = current.next.next;
+                size--;
+                System.out.println("Value " + value + " deleted.");
                 return true;
             }
-
             current = current.next;
         }
 
+        System.out.println("Value " + value + " not found.");
         return false;
     }
 
-    // Search for a value
-    public boolean search(String data) {
-
+    public boolean search(int value) {
         Node current = head;
 
         while (current != null) {
-
-            if (current.data.equals(data)) {
+            if (current.data == value) {
                 return true;
             }
-
             current = current.next;
         }
 
         return false;
     }
 
-    // Display all values
     public void display() {
-
         if (head == null) {
-            System.out.println("Linked List is empty.");
+            System.out.println("Linked list is empty.");
             return;
         }
 
-          Node current = head;
-
-        System.out.print("Linked List: ");
+        System.out.println("\nLinked List:");
+        Node current = head;
 
         while (current != null) {
-
             System.out.print(current.data);
 
             if (current.next != null) {
@@ -100,6 +96,14 @@ public class LinkedList {
             current = current.next;
         }
 
-        System.out.println();
+        System.out.println(" -> NULL");
+    }
+
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    public int size() {
+        return size;
     }
 }
