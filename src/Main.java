@@ -100,7 +100,6 @@ static Stack stack = new Stack();
 static Queue queue = new Queue();
 static LinkedList linkedList = new LinkedList();
 static Graph graph = new Graph();
-static PerformanceAnalyzer performanceAnalyzer =
-        new PerformanceAnalyzer();
+static PerformanceAnalyzer performanceAnalyzer = new PerformanceAnalyzer();
     
 }
