@@ -1,5 +1,6 @@
 import java.util.Arrays;
 
+
 public class SearchAlgorithms {
 
     public static int linearSearch(int[] array, int target) {
